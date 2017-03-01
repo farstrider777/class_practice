@@ -184,7 +184,13 @@ console.assert(safe.unlock(rightKey) === sensitive);
 
 class Validator{
   email(string){
-    return string === "name@theironyard.com"
+    var splitString = string.split('@');
+    if(splitString[0].includes("-")){
+      return false
+    }else if(splitString[1].includes(".com")){
+      return true
+    }else{ return false };
+
   }
 }
 
